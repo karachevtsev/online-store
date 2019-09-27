@@ -12,6 +12,11 @@
 
 body {
 	font-family: 'GTEestiProText', Arial, sans-serif;
+
+	&.modal-open {
+		overflow: hidden;
+		padding-right: 15px;
+	}
 }
 
 button {
@@ -524,5 +529,9 @@ nav {
 	&-confirm {
 		display: block;
 		margin-left: auto;
+	}
+
+	&.is-active {
+		display: flex;
 	}
 }
