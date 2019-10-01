@@ -44,7 +44,7 @@ catalogCards.forEach((card) => {
 
         btnRemoveFromCart.addEventListener('click', () => {
             cardClone.remove();
-            showCartData()
+            showCartData();
         });
     });
 });
@@ -70,4 +70,19 @@ function showCartData() {
     }
 }
 
+const discountCheckbox = document.getElementById('discount-checkbox');
+
+discountCheckbox.addEventListener('click', filter);
+
+function filter() {
+    catalogCards.forEach((card) => {
+        const cardSale = card.querySelector('.card-sale');
+
+        card.parentNode.style.display = '';
+
+        if (discountCheckbox.checked && !cardSale) {
+            card.parentNode.style.display = 'none';
+        }
+    });
+}
 
