@@ -71,16 +71,23 @@ function showCartData() {
 }
 
 const discountCheckbox = document.getElementById('discount-checkbox');
+const minPriceField = document.getElementById('min');
+const maxPriceField = document.getElementById('max');
 
 discountCheckbox.addEventListener('click', filter);
+minPriceField.addEventListener('change', filter);
+maxPriceField.addEventListener('change', filter);
 
 function filter() {
     catalogCards.forEach((card) => {
         const cardSale = card.querySelector('.card-sale');
+        const cardPrice = card.querySelector('.card-price');
+        const price = parseFloat(cardPrice.textContent);
 
         card.parentNode.style.display = '';
-
-        if (discountCheckbox.checked && !cardSale) {
+        if ((min.value && price < min.value) || (max.value && price > max.value)) {
+            card.parentNode.style.display = 'none';
+        } else if (discountCheckbox.checked && !cardSale) {
             card.parentNode.style.display = 'none';
         }
     });
