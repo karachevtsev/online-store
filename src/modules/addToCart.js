@@ -8,6 +8,24 @@ export default function addToCart() {
 
     catalogCards.forEach((card) => {
         const btnAddToCart = card.querySelector('button');
+        const cardImage = card.querySelector('img');
+        const cardImageSrc = cardImage.src;
+
+        const hoverCardImageSrc = cardImage.dataset.hover;
+
+        card.onmouseover = function() {
+            if (hoverCardImageSrc === 'undefined') {
+                cardImage.src = cardImageSrc;
+            } else {
+                cardImage.src = hoverCardImageSrc;
+                cardImage.onerror = function () {
+                    cardImage.src = cardImageSrc;
+                };
+            }
+        };
+        card.onmouseout  = function() {
+            cardImage.src = cardImageSrc;
+        };
 
         btnAddToCart.addEventListener('click', () => {
             const cardClone = card.cloneNode(true);
@@ -22,6 +40,8 @@ export default function addToCart() {
                 showCartData();
             });
         });
+
+
     });
 
     function showCartData() {

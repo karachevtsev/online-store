@@ -10,7 +10,7 @@ export default function renderCards(data) {
                     <div class="card-img-wrapper">
                         <picture class="card-img-top">
                            ${good.imgWebp ? `<source srcset=${good.imgWebp} type="image/webp">` : ''}
-                            <img src="${good.img}" alt="${good.title}" class="img-fluid mx-auto d-block">
+                            <img src="${good.img}" alt="${good.title}" class="img-fluid mx-auto d-block"  data-hover="${good.hoverImg}">
                         </picture>
                     </div>
                     <div class="card-body justify-content-between">
