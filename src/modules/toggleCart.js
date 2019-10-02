@@ -4,12 +4,19 @@ export default function toggleCart() {
     const btnCloseCart = document.querySelector('.js-cart-close');
 
     btnOpenCart.addEventListener('click', () => {
-        cart.classList.add('is-active');
+        cart.classList.add('is-open');
         document.body.classList.add('modal-open');
     });
 
     btnCloseCart.addEventListener('click', () => {
-        cart.classList.remove('is-active');
+        cart.classList.remove('is-open');
         document.body.classList.remove('modal-open');
     });
+    
+    document.body.addEventListener('click', (event) =>  {
+        if ( event.target.classList.contains('js-modal-cart') ) {
+            cart.classList.remove('is-open');
+            document.body.classList.remove('modal-open');
+        }
+    })
 }

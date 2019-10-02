@@ -102,6 +102,10 @@ nav {
 		border: 2px solid #005bff;
 		width: 118px;
 
+		&.is-open {
+			display: block;
+		}
+
 		ul {
 			list-style: none;
 			margin: 0;
@@ -110,6 +114,10 @@ nav {
 
 			li {
 				border-bottom: 1px solid #000;
+				
+				&.is-active {
+					color: #ff0000;
+				}
 
 				&:last-child {
 					border-bottom: none;
@@ -531,7 +539,7 @@ nav {
 		margin-left: auto;
 	}
 
-	&.is-active {
+	&.is-open {
 		display: flex;
 	}
 }

@@ -1,7 +1,7 @@
 export default function renderCards(data) {
     if (data.hasOwnProperty('goods')) {
         data.goods.forEach((good) => {
-            const goodsContainer = document.querySelector('.goods');
+            const goodsContainer = document.getElementById('goods');
             const card = document.createElement('div');
             card.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
             card.innerHTML = `

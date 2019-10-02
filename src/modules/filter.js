@@ -3,6 +3,7 @@ export default function filter() {
     const discountCheckbox = document.getElementById('discount-checkbox');
     const minPriceField = document.getElementById('min');
     const maxPriceField = document.getElementById('max');
+    const activeLi = document.querySelector('#catalog-list li.is-active');
 
     catalogCards.forEach((card) => {
         const cardSale = card.querySelector('.card-sale');
@@ -14,6 +15,12 @@ export default function filter() {
             card.parentNode.style.display = 'none';
         } else if (discountCheckbox.checked && !cardSale) {
             card.parentNode.style.display = 'none';
+        } else if (activeLi) {
+            if (card.dataset.category !== activeLi.textContent ) {
+                card.parentNode.style.display = 'none';
+            } else {
+                card.parentNode.style.display = '';
+            }
         }
     });
 }
