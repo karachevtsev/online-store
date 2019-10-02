@@ -4,6 +4,7 @@ export default function addToCart() {
     const cartEmpty = document.getElementById('cart-empty');
     const cartCounter = document.querySelector('.js-cart-counter');
     const cartTotalPrice = document.querySelector('.js-cart-total');
+    const cartConfirmBtn = document.getElementById('js-cart-confirm');
 
     catalogCards.forEach((card) => {
         const btnAddToCart = card.querySelector('button');
@@ -39,8 +40,10 @@ export default function addToCart() {
 
         if (cartCards.length !== 0) {
             cartEmpty.remove();
+            cartConfirmBtn.classList.remove('disabled');
         } else {
             cartWrapper.appendChild(cartEmpty);
+            cartConfirmBtn.classList.add('disabled');
         }
     }
 }
