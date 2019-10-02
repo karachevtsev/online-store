@@ -47,6 +47,4 @@ export default function renderCatalog() {
             filter();
         }
     });
-
-
 }

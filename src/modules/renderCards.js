@@ -8,8 +8,10 @@ export default function renderCards(data) {
                 <div class="card" data-category="${good.category}">
                     ${good.sale ? '<div class="card-sale">🔥Hot Sale🔥</div>' : ''}
                     <div class="card-img-wrapper">
-                        <span class="card-img-top"
-                            style="background-image: url('${good.img}')"></span>
+                        <picture class="card-img-top">
+                           ${good.imgWebp ? `<source srcset=${good.imgWebp} type="image/webp">` : ''}
+                            <img src="${good.img}" alt="${good.title}" class="img-fluid mx-auto d-block">
+                        </picture>
                     </div>
                     <div class="card-body justify-content-between">
                         <div class="card-price" style="${good.sale ? 'color: red;' : ''}">${good.price} ₽</div>
